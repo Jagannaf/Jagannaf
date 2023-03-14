@@ -21,3 +21,36 @@ Post.objects.create(post_author='Пушкин',post_type='AR', post_header="Ка
 
 Post.objects.create(post_author='Есенин',post_type='AR', post_header="Кошка спасла пожарного", post_text=(
     "мур мур мур мяу мяу мур")
+
+Post.objects.get(id=1).post_category.add(Category.objects.get(id=1, 4)
+Post.objects.get(id=2).post_category.add(Category.objects.get(id=2, 3, 4)
+Post.objects.get(id=2).post_category.add(Category.objects.get(id=3, 4)
+
+Comment.objects.create(com_post=Post.objects.get(id=1), com_author=Author.objects.get(id=2), com_text="Ура, болел за Газмяс!")
+Comment.objects.create(com_post=Post.objects.get(id=2), com_author=Author.objects.get(id=2), com_text="Готов на рыбалку хоть завтра")
+Comment.objects.create(com_post=Post.objects.get(id=3), com_author=Author.objects.get(id=1), com_text="Обожаю котиков")
+Comment.objects.create(com_post=Post.objects.get(id=2), com_author=Author.objects.get(id=1), com_text="Жду вас завтра у одинокой ивы")
+
+Post.objects.get(id=1).like()
+Post.objects.get(id=1).like()
+Post.objects.get(id=2).like()
+Post.objects.get(id=2).dislike()
+Post.objects.get(id=2).dislike()
+Post.objects.get(id=3).dislike()
+Post.objects.get(id=3).dislike()
+
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=2).dislike()
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=4).dislike()
+
+a = Author.objects.get(id=1)
+a.update_rating()
+
+b = Author.objects.get(id=2)
+b.update_rating()
+
+
+
+

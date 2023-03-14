@@ -41,11 +41,11 @@ class Post(models.Model):
     post_time = models.DateTimeField(auto_now_add=True)
     post_category = models.ManyToManyField(Category, through='PostCategory')
 
-    def post_like(self):
+    def like(self):
         self.raiting += 1
         self.save()
 
-    def post_dislike(self):
+    def dislike(self):
         self.raiting -= 1
         self.save()
 
@@ -66,10 +66,10 @@ class Comment(models.Model):
     raiting = models.IntegerField(default=0)
     com_time = models.DateTimeField(auto_now_add=True)
 
-    def com_like(self):
+    def like(self):
         self.raiting += 1
         self.save()
 
-    def com_dislike(self):
+    def dislike(self):
         self.raiting -= 1
         self.save()
