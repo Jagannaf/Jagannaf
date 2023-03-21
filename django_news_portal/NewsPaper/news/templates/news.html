@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_tags %}
+
+{% block title %}
+News
+{% endblock title %}
+
+{% block content %}
+   <h1>Самые последние новости от независимых авторов</h1>
+   <h3>{{ time_now|date:'M d Y l' }}</h3>
+   <hr>
+   {% if news %}
+       <table>
+           <tr>
+               <td>Название</td>
+               <td>Описание</td>
+               <td>Категория</td>
+               <td>Рейтинг</td>
+               <td>Дата</td>
+           </tr>
+           {% for post in news %}
+           <tr>
+               <td>{{ post_header }}</td>
+               <td>{{ post_text }}</td>
+               <td>{{ post_category }}</td>
+               <td>{{ post_time }}</td>
+           </tr>
+           {% endfor %}
+       </table>
+   {% else %}
+       <h2>Новостей нет!</h2>!
+   {% endif %}
+{% endblock content %}

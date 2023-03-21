@@ -21,9 +21,15 @@ class Author(models.Model):
         self.author_raiting = pRait * 3 + cRait
         self.save()
 
+    def __str__(self):
+        return self.full_name
+
 
 class Category(models.Model):
     category_name = models.CharField(max_length=64, unique=True)
+
+    def __str__(self):
+        return self.category_name
 
 
 class Post(models.Model):
@@ -52,6 +58,10 @@ class Post(models.Model):
     @property
     def post_preview(self):
         return self.post_text[0:123] + "..."
+
+
+    def __str__(self):
+        return self.post_header
 
 
 class PostCategory(models.Model):
